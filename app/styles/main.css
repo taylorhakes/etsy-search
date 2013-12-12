@@ -72,12 +72,20 @@ button:focus {
   }
 }
 
-.search-filler {
+.search-filler, .item-loading{
     text-align: center;
 }
 
 .form-group {
-    min-height: 400px;
+    min-height: 500px;
+}
+
+.sort-cont {
+	float: right;
+}
+.results-title {
+	float: left;
+	margin: 0px 10px;
 }
 
 .item-title {
@@ -107,23 +115,50 @@ button:focus {
 .item {
     float: left;
     margin:  2% 2% 50px 2%;
-    width: 21%;
+    width: 20%;
+	cursor: pointer;
 }
-.item-img-cont {
+.item-img-cont, .carousel {
     position: relative;
+	text-align: center;
 }
 
-.item .favorite-btn {
+.item .favorite-btn, .item-view .favorite-btn {
     background: #fff;
     position: absolute;
     right: 10px;
     top: 10px;
     padding: 0px;
-    height: 26px;
-    width: 26px;
     padding-top: 2px;
     border-radius: 15px;
 }
+
+.item .favorite-btn {
+	height: 26px;
+	width: 26px;
+}
+
+.carousel .img-thumbnail-cont {
+	display: inline-block;
+	width: 20%;
+	cursor: pointer;
+}
+.carousel .main-cont {
+	text-align: center;
+}
+.carousel .main-img {
+	max-height: 300px;
+	max-width: 100%;
+}
+.carousel .favorite-icon {
+	font-size: 50px;
+}
+
+.main {
+	margin-bottom: 60px;
+}
+
+
 
 
 @media only screen and (max-width : 720px),

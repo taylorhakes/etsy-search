@@ -1,0 +1,29 @@
+<div class="item-view">
+	<div class="item-loading" ng-if="item == null">
+		<h2>
+			<small>Loading item...</small>
+		</h2>
+		<img src="images/loader.gif">
+	</div>
+	<div class="carousel">
+		<div class="main-cont">
+			<img ng-src="{{ selectedImg.url_570xN }}" alt="" class="main-img">
+		</div>
+		<div ng-repeat="image in item.Images" class="img-thumbnail-cont">
+			<img ng-src="{{ image.url_75x75}}" alt="" class="img-thumbnail" ng-click="imgClick($index)">
+		</div>
+		<button class="btn favorite-btn" ng-click="onFavorite($index); $event.stopPropagation();">
+			<i class="glyphicon favorite-icon"
+			   ng-class="{ 'glyphicon-heart': item.isFavorite, 'glyphicon-heart-empty': !item.isFavorite }"></i>
+		</button>
+	</div>
+	<h1>{{ item.title }}</h1>
+	<div class="clearfix">
+		<h3 class="item-shop">{{ item.Shop.shop_name }}</h3>
+		<h3 class="item-price">{{ item.price }} {{ item.currency_code }}</h3>
+	</div>
+	<h5>Description</h5>
+	<div class="description">
+		{{ item.description }}
+	</div>
+</div>

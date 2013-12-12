@@ -1,16 +1,30 @@
-
-
 <div class="form-group">
     <input type="text" ng-model="search" class="form-control main-search input-lg"  placeholder="Search Etsy">
-    <div class="search-filler" ng-if="items == null">
-        <h2><small>{{ tempText }}</small></h2>
-        <img ng-if="loading"  src="images/loader.gif">
-    </div>
+	<div class="page-header clearfix">
+		<h4 class="results-title">
+			Results
+		</h4>
+		<div class="sort-cont">
+			<select class="sort-direction" ng-model="sort">
+				<option value="new" selected="selected">Newest</option>
+				<option value="old">Oldest</option>
+				<option value="least">Lease Expensive</option>
+				<option value="most">Most Expensive</option>
+				<option value="high">Highest Rated</option>
+			</select>
+		</div>
+	</div>
+	<div class="search-filler" ng-if="items == null">
+		<h2>
+			<small>{{ tempText }}</small>
+		</h2>
+		<img ng-if="loading" src="images/loader.gif">
+	</div>
     <div class="clearfix" infinite-scroll="paging()" infinite-scroll-distance="3" infinite-scroll-disabled='busy'>
-        <div ng-if="items.length" ng-repeat="item in items" class="item">
+        <div ng-if="items.length" ng-repeat="item in items" class="item" ng-click="goToItem($index)">
             <div class="item-img-cont">
                 <img ng-src="{{ item.Images[0].url_170x135 }}" alt="{{ item.title }}" class="img-thumbnail">
-                <button class="btn favorite-btn" ng-click="onFavorite($index)">
+                <button class="btn favorite-btn" ng-click="onFavorite($index);$event.stopPropagation();">
                     <i class="glyphicon favorite-icon" ng-class="{ 'glyphicon-heart': item.isFavorite, 'glyphicon-heart-empty': !item.isFavorite }"></i>
                 </button>
             </div>
@@ -21,5 +35,11 @@
             </div>
         </div>
     </div>
+	<div class="search-filler" ng-if="busy">
+		<h2>
+			<small>Loading more items...</small>
+		</h2>
+		<img src="images/loader.gif">
+	</div>
 </div>
 

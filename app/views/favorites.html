@@ -1,10 +1,11 @@
 <div class="form-group">
+	<input type="text" ng-model="filter" class="form-control main-search input-lg" placeholder="Filter Favorites">
     <div class="clearfix">
         <div ng-if="items.length" ng-repeat="item in items" class="item">
-            <div class="item-img-cont">
+            <div class="item-img-cont" ng-click="goToItem($index)">
                 <img ng-src="{{ item.Images[0].url_170x135 }}" alt="{{ item.title }}" class="img-thumbnail">
-                <button class="btn favorite-btn" ng-click="onFavorite($index)">
-                    <i class="glyphicon favorite-icon" ng-class="{ 'glyphicon-heart': item.isFavorite, 'glyphicon-heart-empty': !item.isFavorite }"></i>
+                <button class="btn favorite-btn" ng-click="onFavorite($index); $event.stopPropagation();">
+                    <i class="glyphicon favorite-icon glyphicon-heart"></i>
                 </button>
             </div>
             <div class="item-title">{{ item.title }}</div>
