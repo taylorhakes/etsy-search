@@ -20,7 +20,7 @@ npm install
 bower install
 ```
 
-To run tests
+To run tests run the following command. You must have PhantomJS in your path. You can also change the browser in karma.conf.js
 ```
 grunt test
 ```
