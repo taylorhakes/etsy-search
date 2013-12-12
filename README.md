@@ -3,7 +3,7 @@ etsy-search
 
 Search the Etsy API with a simple webpage
 
-[![Build Status](https://travis-ci.org/tayorhakes/etsy-search.png)](https://travis-ci.org/tayorhakes/etsy-search)
+[![Build Status](https://travis-ci.org/taylorhakes/etsy-search.png)](https://travis-ci.org/taylorhakes/etsy-search)
 
 Documentation
 -------------
