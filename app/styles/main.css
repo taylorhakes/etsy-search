@@ -4,6 +4,11 @@ body {
   padding-bottom: 20px;
 }
 
+button:focus {
+    outline-width: 0px;
+    outline: none;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -41,15 +46,7 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
+
 
 /* Supporting marketing content */
 .marketing {
@@ -59,11 +56,6 @@ body {
   margin-top: 28px;
 }
 
-.gridStyle {
-    border: 1px solid rgb(212,212,212);
-    width: 400px;
-    height: 300px
-}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -78,8 +70,76 @@ body {
   .header {
     margin-bottom: 30px;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+}
+
+.search-filler {
+    text-align: center;
+}
+
+.form-group {
+    min-height: 400px;
+}
+
+.item-title {
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.item-shop {
+    width: 48%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #b2b2b2;
+    float: left;
+}
+.item-price {
+    color: #78c042;
+    float: right;
+    text-align: right;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.item {
+    float: left;
+    margin:  2% 2% 50px 2%;
+    width: 21%;
+}
+.item-img-cont {
+    position: relative;
+}
+
+.item .favorite-btn {
+    background: #fff;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 0px;
+    height: 26px;
+    width: 26px;
+    padding-top: 2px;
+    border-radius: 15px;
+}
+
+
+@media only screen and (max-width : 720px),
+only screen and (max-device-width : 720px){
+    .item {width: 29.33333%;}
+}
+
+@media only screen and (max-width : 530px),
+only screen and (max-device-width : 530px){
+    .item {width: 46%;}
+}
+
+@media only screen and (max-width : 320px),
+only screen and (max-device-width : 320px){
+    .item {width: 96%;}
+    .item img {width: 96%;}
+    .item h3 {font-size: 18px;}
+    .item p, {font-size: 18px;}
 }
