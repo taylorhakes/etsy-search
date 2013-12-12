@@ -3,7 +3,7 @@
     <div class="clearfix">
         <div ng-if="items.length" ng-repeat="item in items" class="item">
             <div class="item-img-cont" ng-click="goToItem($index)">
-                <img ng-src="{{ item.Images[0].url_170x135 }}" alt="{{ item.title }}" class="img-thumbnail">
+                <img ng-src="{{ item.Images ? item.Images[0].url_170x135 : 'images/noImage.jpg' }}" alt="{{ item.title }}" class="img-thumbnail">
                 <button class="btn favorite-btn" ng-click="onFavorite($index); $event.stopPropagation();">
                     <i class="glyphicon favorite-icon glyphicon-heart"></i>
                 </button>

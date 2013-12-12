@@ -17,6 +17,16 @@ angular.module('etsyApp')
 			$scope.selectedImg = $scope.item.Images[index];
 		};
 
+		var updatePage = function updatePage(item) {
+			item.isFavorite = !!favoritesHash[item.listing_id];
+			$scope.item = item;
+			if(item.Images) {
+				$scope.selectedImg = item.Images[0];
+			} else {
+				$scope.selectedImg = null;
+			}
+		};
+
 		// Get all the favorites
 		var favoritesHash = favoriteService.getAll();
 		var savedItem = itemService.get();
@@ -27,9 +37,7 @@ angular.module('etsyApp')
 		// Get the item from th URL
 		var id = +$routeParams.id;
 		if(savedItem.listing_id === id) {
-			savedItem.isFavorite = !!favoritesHash[savedItem.listing_id];
-			$scope.item = savedItem;
-			$scope.selectedImg = savedItem.Images[0];
+			updatePage(savedItem);
 		} else {
 			etsyService.get({
 				path: 'listings/:listing_id.js',
@@ -40,9 +48,7 @@ angular.module('etsyApp')
 				success: function(info) {
 					$scope.error = null;
 					var item = info.response.results[0];
-					item.isFavorite = !!favoritesHash[item.listing_id];
-					$scope.item = item;
-					$scope.selectedImg = item.Images[0];
+					updatePage(item);
 				},
 				error: function(info) {
 					$scope.error = info.error;

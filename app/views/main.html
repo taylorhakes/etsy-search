@@ -23,7 +23,7 @@
     <div class="clearfix" infinite-scroll="paging()" infinite-scroll-distance="3" infinite-scroll-disabled='busy'>
         <div ng-if="items.length" ng-repeat="item in items" class="item" ng-click="goToItem($index)">
             <div class="item-img-cont">
-                <img ng-src="{{ item.Images[0].url_170x135 }}" alt="{{ item.title }}" class="img-thumbnail">
+                <img ng-src="{{ item.Images ? item.Images[0].url_170x135 : 'images/noImage.jpg' }}" alt="{{ item.title }}" class="img-thumbnail">
                 <button class="btn favorite-btn" ng-click="onFavorite($index);$event.stopPropagation();">
                     <i class="glyphicon favorite-icon" ng-class="{ 'glyphicon-heart': item.isFavorite, 'glyphicon-heart-empty': !item.isFavorite }"></i>
                 </button>
